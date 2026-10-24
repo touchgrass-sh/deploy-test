@@ -1,0 +1,14 @@
+{
+  "name": "touchgrass-deploy-test",
+  "private": true,
+  "scripts": {
+    "deploy": "npm run db:migrate && wrangler deploy",
+    "db:migrate": "wrangler d1 migrations apply DB --remote"
+  },
+  "devDependencies": { "wrangler": "^4.147.0" },
+  "cloudflare": {
+    "bindings": {
+      "TELEGRAM_BOT_TOKEN": { "description": "Test only. Paste **anything**, e.g. `123:abc`. In the real bot this is the token from [@BotFather](https://t.me/BotFather)." }
+    }
+  }
+}
